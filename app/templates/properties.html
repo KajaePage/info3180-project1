@@ -5,6 +5,7 @@
 <ul class="PUL"> 
     {% for property in property_profiles%}
     <li class="pcontainer">
+        
         <img src="{{ url_for('get_image', filename=property.filename) }}" class="pimg" style="width: 367px; height: 288px;"/>
         
         <div class="property-info-container">
