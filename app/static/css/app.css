@@ -1,3 +1,191 @@
 body {
     padding-top: 5rem;
+    background-color: #f3f4f6;
+}
+i.fa .fa-home{
+    color: white;
+}
+/*Header and title of form*/
+.space{
+    padding-bottom: 10px;
+}
+.form-control{
+    width: 85%;
+}
+
+input.form-content,select#type {
+    display: block;
+    width: 70%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.flex2, .flex1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+.f-one, .f-two {
+    width: 50%;
+}
+.top, .location, .col-bold{
+    font-weight: bolder;
+}
+
+.s{
+    padding-left: 20px;
+    padding-top: 28px;
+}
+
+/* Properties */
+
+.PUL {
+    list-style-type: none;
+}
+
+li.pcontainer {
+    width: 29%;
+    filter: drop-shadow(2px 4px 6px #00000044);
+    background-color: white;
+    margin: 1%;
+    display: inline-block;
+}
+
+img.pimg {
+    width: 100%;
+    overflow: hidden;
+}
+
+button {
+    width: 100%;
+    border: none;
+    height: 45px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: #0dcaf0;
+}
+
+.title{
+    padding-left: 10px;
+}
+.p-location{
+    padding-left: 10px;
+    color: #b4b3b6;
+}
+
+.p-price{
+    padding: 5px 10px;
+    margin: 0px 10px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 10pc;
+    width: 30%;
+    margin-bottom: 20px;
+    
+}
+i.fa.fa-map-marker{
+    color: #b4b3b6;
+    padding-right: 5px;
+}
+
+i.fa.fa-map-marker.l{
+    color: black;
+    padding-right: 5px;
+    padding-left: 8px;
+}
+
+.t{
+    margin-top: 13px;
+    margin-left: 0%;
+}
+button{
+    background-color: #15b8a7;
+}
+
+.ip-card{
+    width: 50%;
+    display: flex;
+}
+
+.ip-image {
+    height: 350px;
+    width: auto;
+}
+
+.ip-image-card {
+    width: 400px;
+    height: auto;   
+    overflow: hidden;
+}
+
+.ip-details-card{
+    width: 500px;
+    padding: 20px;
+    height: auto;
+}
+
+.ip-card {
+    width: 950px;
+    height: auto;
+    display: flex;
+    background-color: white;
+    filter: drop-shadow(0px 0px 2px #909091);
+}
+
+button.email {
+    width: 125px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-left: 6px;
+}
+
+.ip-title {
+   margin-top: 15px;
+   margin-bottom: 10px;
+}
+
+.ip-type {
+    padding: 5px 10px;
+    margin: 0px 10px;
+    background-color: #eab11e;
+    color: white;
+    border-radius: 10pc;
+}
+
+.ip-price {
+    padding: 5px 10px;
+    margin: 0px 10px;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 10pc;
+}
+
+.price-type {
+    margin: 10px 0px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.ip-bathroom, .ip-bedrooms{
+    margin: 10px;
+}
+
+
+.ip-location{
+    margin: 15px 0px;
+}
+
+.ip-description{
+    margin: 10px 0px;
+    padding-left: 10px;
 }

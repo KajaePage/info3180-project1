@@ -5,10 +5,13 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
 
-from app import app
-from flask import render_template, request, redirect, url_for
-
-
+import os
+from pydoc import describe
+from app import app,db
+from flask import render_template, render_template_string, request, redirect, send_from_directory, url_for, flash
+from app.forms import PropertyForm
+from app.models import propertyProfile
+from werkzeug.utils import secure_filename
 ###
 # Routing for your application.
 ###
@@ -23,6 +26,56 @@ def home():
 def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
+
+@app.route('/properties/create', methods=['POST','GET'])
+def property():
+    """Render the website's property form page."""
+    myForm = PropertyForm()
+    if request.method == 'POST' and myForm.validate_on_submit():
+        title = request.form['title']
+        description = request.form['description']
+        bedrooms = request.form['bedrooms']
+        bathroom = request.form['bathroom']
+        price = request.form['price']
+        type = request.form['type']
+        location = request.form['location']
+        photo= request.files['photo']
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                
+        property = propertyProfile(title, bedrooms, bathroom, location, price, type, description, filename)
+        db.session.add(property)
+        db.session.commit()
+        flash('property created successfully', 'success')
+        return redirect(url_for('properties'))
+    return render_template('propertyForm.html', form=myForm)
+
+@app.route('/properties')
+def properties():
+    """Render the website's properties page."""
+    property_profiles = db.session.query(propertyProfile).all()
+    print(property_profiles)
+    return render_template('properties.html',property_profiles=property_profiles)
+
+@app.route('/properties/<propertyid>')
+def individualproperty(propertyid):
+    """Query database for complete property info for id, then pass to a template to render the info"""
+    Iid = propertyProfile.query.filter_by(id=propertyid).first()
+    return render_template('individualproperty.html', Iid = Iid)
+        
+
+@app.route("/uploads/<filename>") 
+def get_image(filename):
+    return send_from_directory(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER']), filename)
+    
+def get_uploaded_images():
+    uploadlist = []
+    for subdir, dirs, files in os.walk(app.config['UPLOAD_FOLDER']):
+        for file in files:
+            f_name, f_ext = os.path.splitext(file)
+            if f_ext in [".png",".jpg"]:
+                uploadlist.append(file)
+    return uploadlist
 
 
 ###

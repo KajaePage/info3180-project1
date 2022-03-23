@@ -1,0 +1,71 @@
+{% extends 'base.html' %} 
+{% block main %}
+<h1 style="font-weight: bolder; margin-left: 49px; margin-left: 245px; margin-bottom: 20px;">Add New Property</h1>
+<div class="card" style="width: 50rem; padding:20px; margin:0 auto;">
+    <form class="form" action="{{ url_for('property') }}" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="top">
+            {{ form.title.label(text="Title") }}
+            {{ form.title(class="form-control") }}
+            <div class="space"></div>
+
+            {{ form.description.label(text="Description") }}
+            {{ form.description(class="form-control") }}
+            <div class="space"></div>
+        </div>
+    
+    
+        <div class="flex1">
+            <div class="f-one room">
+                {{ form.bedrooms.label(text="No. of Rooms") }}
+                {{ form.bedrooms(class="form-content") }}
+                <div class="space"></div>
+            </div>
+            
+           <div class="f-two room">
+                {{ form.bathroom.label(text="No. of Bathrooms") }}
+                {{ form.bathroom(class="form-content") }}
+                <div class="space"></div>
+           </div>
+        </div>
+    
+        <div class="flex2">
+            <div class="f-one price">
+                {{ form.price.label(text="Price") }}
+                {{ form.price(class="form-content") }}
+                <div class="space"></div>
+            </div>
+            
+           <div class="f-two types">
+                {{ form.type.label(text="Type") }}
+                {{ form.type(class="form-content") }}
+                <div class="space"></div>
+           </div>
+        </div>
+        <div class="location">
+            {{ form.location.label(text="Location") }}
+        {{ form.location(class="form-control") }}
+        <div class="space"></div>
+        </div>
+            <div class="input-group pt-2">
+                <div class="input-group-prepend col-bold">
+                    {{form.photo.label(text="Photo")}}
+                    <span class="input-group-text" id="inputGroupFileAddon01"> Browse</span>
+                    <div class="space"></div>
+                </div>
+                <div class="s">
+                <div class="custom-file">
+                    {{form.photo(class="custom-file-input",id="inputGroupFile01")}}
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+            </div>
+
+       
+            <div class="wrap-contact100-form-btn pt-2">
+                {{form.submit(class="btn btn-primary mb-2")}}
+                </div>
+
+    </form>
+</div>
+{% endblock %}

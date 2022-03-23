@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1 style="font-weight: bolder; margin-left: 49px;">Properties</h1>
+<ul class="PUL"> 
+    {% for property in property_profiles%}
+    <li class="pcontainer">
+        <img src="{{ url_for('get_image', filename=property.filename) }}" class="pimg" style="width: 367px; height: 288px;"/>
+        
+        <div class="property-info-container">
+            <h3 class="title t">{{property.title}}</h3>
+            <p class="p-location"><i class="fa fa-map-marker" aria-hidden="true"></i>{{property.location}}</p>
+            <div class="oval">
+                <p class="p-price">{{property.price}}</p>
+            </div>
+        </div> 
+        <a href="{{ url_for('individualproperty', propertyid=property.id) }}"><button>View Property</button></a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

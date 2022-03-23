@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="contain_center" style="display: flex; align-items: center; justify-content: center; margin: 50px;">
+    <div class="ip-card">
+        
+        <div class="ip-image-card">
+            <img src="{{ url_for('get_image', filename=Iid.filename) }}" class="ip-image"style="width: 470px; height: 493px;"/>
+        </div>
+        
+        <div class="ip-details-card">
+            <h1 class="ip-title">{{Iid.title}}</h1>
+            <br>
+            <div class="price-type">
+                <p class="ip-price" style="display: inline;">{{Iid.price}}</p>
+                <p class="ip-type" style="display: inline;">{{Iid.type}}</p>
+            </div>
+            <div class="space"></div>
+            <p class="ip-description">{{Iid.description}}</p>
+            <div class="space"></div>
+            <div>
+                <p class="ip-bedrooms" style="display: inline;"><i class="fa fa-bed"></i> {{Iid.bedrooms}} Bedrooms</p>
+                <p class="ip-bathroom" style="display: inline;"><i class="fa fa-bath"></i>{{Iid.bathroom}} Bathrooms</p>
+            </div>
+            
+            <div class="space"></div>
+            <p class="ip-location"><i class="fa fa-map-marker l"></i> {{Iid.location}}</p>     
+            <button class="email">Email Realtor</button>
+        </div>
+        
+    </div>
+</div>
+    
+{% endblock %}
